@@ -7,4 +7,4 @@ Hi, this page is currently under construction. Sorry about that.
 
 😆
 
-[my_photo]: {static}/images/image.png
+[my_photo]: {static}/pages/images/image.png
