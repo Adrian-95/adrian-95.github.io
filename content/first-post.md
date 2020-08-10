@@ -19,7 +19,7 @@ It is certainly worth noting that Past Climate is a vast topic that involves a m
 ## Coding opens golden opportunities for research
 
 ![Python][pyhtonbanner]
-[pyhtonbanner]: {images}python-banner.png
+[pyhtonbanner]: {images}/python-banner.png
 
 Coding skills are becoming more and more valuable as we unlock new technologies that make us more efficient in our work. 
 
