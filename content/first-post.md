@@ -18,6 +18,9 @@ It is certainly worth noting that Past Climate is a vast topic that involves a m
 
 ## Coding opens golden opportunities for research
 
+![Python][pyhtonbanner]
+[pyhtonbanner]: {images}python-banner.png
+
 Coding skills are becoming more and more valuable as we unlock new technologies that make us more efficient in our work. 
 
 Python is an amazing tool for geoscientists. I have been studying Python for the past 2 years and the possibilities are staggering. The language itself is quite straightforward and easy to learn, but modules truly unlock the power of Python. Among the many things that make life easier, those of particular interest to geoscientist are:
@@ -26,5 +29,13 @@ Python is an amazing tool for geoscientists. I have been studying Python for the
 
    2. *Machine Learning*. Python earned much of its fame by being the go-to language for Machine Learning. Modules such as `tensorflow` and `scikit-learn` provide the tools necessary for creating Python scripts able to sort trough massive ammounts of field data and identify patterns for further classification.
 
-   3. *GIS*. 
+   3. *Geographical Information Systems*. GIS is invaluable when working with spatial data. Python features many tools capable of reading, writing and manipulating this type of data, such as `geopandas` and `pyproj`.
+
+You will find that Python has many other uses outside the realm of geoscience. You can write Python scripts to automate daily tasks and make your life easier, perhaps even become more efficient in your daily routine.
+
+### Did you know? ###
+
+As a matter of fact, the website Past Climate is written in Python, powered by the latest [Pelican](https://github.com/getpelican/pelican) technology. It is only fitting, I think, considering the fact that we will be looking at python scripts quite often from now on. 
+
+On a final note, I'd like to add that I'm no computer scientist and that I'm always looking to improve. I would like to hear from you if you have any ideas or suggestions related to my work.
 
