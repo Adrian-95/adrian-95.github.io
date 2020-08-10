@@ -21,7 +21,10 @@ It is certainly worth noting that Past Climate is a vast topic that involves a m
 Coding skills are becoming more and more valuable as we unlock new technologies that make us more efficient in our work. 
 
 Python is an amazing tool for geoscientists. I have been studying Python for the past 2 years and the possibilities are staggering. The language itself is quite straightforward and easy to learn, but modules truly unlock the power of Python. Among the many things that make life easier, those of particular interest to geoscientist are:
-1. *Plotting and Manipulating Data*. In Python, this is done with the help of modules such as `Numpy`, `Pandas` and `Matplotlib`. You can create your very own plots, diagrams, 2D and 3D arrays. The great advantage of doing this in Python is that your creation is fully customizable, since you are not held back by the limitations of some third party software. 
-2. *Machine Learning*. Python earned much of its fame by being the go-to language for Machine Learning. Modules such as `tensorflow` and `scikit-learn` provide the tools necessary for creating Python scripts able to sort trough massive ammounts of field data and identify patterns for further classification.
-3. *GIS*. 
+
+   1. *Plotting and Manipulating Data*. In Python, this is done with the help of modules such as `Numpy`, `Pandas` and `Matplotlib`. You can create your very own plots, diagrams, 2D and 3D arrays. The great advantage of doing this in Python is that your creation is fully customizable, since you are not held back by the limitations of some third party software. 
+
+   2. *Machine Learning*. Python earned much of its fame by being the go-to language for Machine Learning. Modules such as `tensorflow` and `scikit-learn` provide the tools necessary for creating Python scripts able to sort trough massive ammounts of field data and identify patterns for further classification.
+
+   3. *GIS*. 
 
