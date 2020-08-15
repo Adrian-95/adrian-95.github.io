@@ -4,7 +4,7 @@ author: Adrian
 category: Introduction
 tags: Introduction, Geology, Python
 
-**Past Climate** is a blog about various geoscience topics, python scripts and tutorials. Most topics will explore the proxies and processes that shaped the climate system of the Earth, but other geology-related topics will be adressed as well. 
+**Past Climate** is a blog about various geoscience topics, python scripts and tutorials. Most topics will explore the proxies and processes that shaped the climate system of the Earth, but other geology-related topics will be adressed as well. Relevant news and articles may also be discussed. 
 
 *The beggining is the most important part of the work - Plato*
 
