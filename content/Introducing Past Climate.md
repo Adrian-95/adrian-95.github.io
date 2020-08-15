@@ -1,10 +1,8 @@
-title: Introduction to Past Climate
+title: Introducing Past Climate
 date: 2020-08-06
 author: Adrian
 category: Introduction
 tags: Introduction, Geology, Python
-
-# Introducing Past Climate
 
 **Past Climate** is a blog about various geoscience topics, python scripts and tutorials. Most topics will explore the proxies and processes that shaped the climate system of the Earth, but other geology-related topics will be adressed as well. 
 
