@@ -4,7 +4,10 @@ author: Adrian
 category: Data Visualization
 tags: Data, Climate, Python
 
-In the age of **Big Data**, visualization is essential for making sense of millions of rows of unsorted raw data. More often than not, your data will come as a text file, or an excel file with rows and collumns. Here is an example of temperature anomaly data from a .csv file:
+In the age of **Big Data**, visualization is essential for making sense of millions of rows of unsorted raw data. More often than not, your data will come as a text file, or an excel file with rows and collumns. Here is an example of temperature anomaly data from an .xlsx file:
+
+>Global temperature anomaly data come from the Global Historical Climatology Network-Monthly (GHCN-M) data set and International Comprehensive Ocean-Atmosphere Data Set (ICOADS), which have data from 1880 to the present. These two datasets are blended into a single product to produce the combined global land and ocean temperature anomalies. The available timeseries of global-scale temperature anomalies are calculated with respect to the 20th century average, while the mapping tool displays global-scale temperature anomalies with respect to the 1981-2010 base period.
+
 ```
 
 Global Land and Ocean Temperature Anomalies	 January-December
@@ -42,11 +45,22 @@ Year	Value
 1907	-0.38
 1908	-0.43
 1909	-0.45
-...`
+...
+2020    1.14`
 
 ```
 At first glance, you may get a general idea of what this data is about. On the left column you clearly have years, and on the right you have what appears to be temperature anomalies. But this is not good enough if you wish to understand and interpret the data. 
 
-Python provides great tools for data processing, plotting and visualization. For the example above we shall use `pandas` for reading and sorting the .csv file and `matplotlib` to create a 2D plot.
+Python provides great tools for data processing, plotting and visualization. For the example above we shall use `pandas` for reading and sorting the .xlsx file and `matplotlib` to create a 2D plot.
 
-To be continued...
+The first step is to import the `pandas` module and read the file.
+
+```
+import pandas
+df = pandas.read_excel('C:/Users/Public/data.xlsx', skiprows=4)
+```
+Notice that we are skipping the first 4 rows since the columns are on the 5th row. Let's print the columns from our table and see if the file loaded correctly
+
+```
+print(df.columns)
+```
