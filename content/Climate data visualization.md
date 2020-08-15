@@ -63,4 +63,26 @@ Notice that we are skipping the first 4 rows since the columns are on the 5th ro
 
 ```
 print(df.columns)
+Index(['Year', 'Value'], dtype='object')
 ```
+
+So far so good, next we shall assign the two columns to x and y axes.
+
+```
+x = df['Year'].values
+y = df['Value'].values
+```
+
+Now that we have our data loaded and assigned to variables, we can import matplotlib and create a plot.
+
+```
+import matplotlib.pyplot as plt
+plt.scatter(x, y)
+plt.xlabel('Year')
+plt.ylabel('Temperature Anomaly Value')
+plt.savefig('C:/Users/Public/climatedata.png', dpi=500)
+```
+![climateplot][climateplot]
+[climateplot]: {static}/pages/images/climateplot.png
+
+So now we have an x-y scatter plot of temperature anomalies versus time. This is obviously much better than analysing raw data and the overall warming trend can be seen clearly. But this plot is rather simple, it can be made better with some customization.
