@@ -67,7 +67,7 @@ Index(['Year', 'Value'], dtype='object')
 ```
 
 So far so good, next we shall assign the two columns to x and y axes.
-
+:::python
 ```
 x = df['Year'].values
 y = df['Value'].values
