@@ -51,7 +51,7 @@ Year	Value
 ```
 At first glance, you may get a general idea of what this data is about. On the left column you clearly have years, and on the right you have what appears to be temperature anomalies. But this is not good enough if you wish to understand and interpret the data. 
 
-Python provides great tools for data processing, plotting and visualization. For the example above we shall use `pandas` for reading and sorting the .xlsx file and `matplotlib` to create a 2D plot.
+Python provides great tools for data processing, plotting and visualization. For the example above we shall use `pandas` for reading and sorting the .xlsx file and `matplotlib` with `pyplot` to create a 2D plot.
 
 The first step is to import the `pandas` module and read the file. Afterwards the Year column will be assigned to the x axis and the Value column will be assigned to the y axis.
 
@@ -62,7 +62,7 @@ print(df.columns)
 x = df['Year'].values
 y = df['Value'].values
 ```
-Notice that we are skipping the first 4 rows since the columns are on the 5th row. Now that we have our data loaded and assigned to variables, we can import matplotlib and create a plot.
+Notice that we are skipping the first 4 rows since the columns are on the 5th row. Now that we have our data loaded and assigned to variables, we can import matplotlib and create a plot with `pyplot`.
 
 ```
 import matplotlib.pyplot as plt
