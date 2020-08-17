@@ -58,20 +58,13 @@ The first step is to import the `pandas` module and read the file.
 ```
 import pandas
 df = pandas.read_excel('C:/Users/Public/data.xlsx', skiprows=4)
-```
-Notice that we are skipping the first 4 rows since the columns are on the 5th row. Let's print the columns from our table and see if the file loaded correctly
-
-```
 print(df.columns)
-Index(['Year', 'Value'], dtype='object')
-```
-
-So far so good, next we shall assign the two columns to x and y axes.
-:::python
-```
 x = df['Year'].values
 y = df['Value'].values
 ```
+Notice that we are skipping the first 4 rows since the columns are on the 5th row. Let's print the columns from our table and see if the file loaded correctly
+
+So far so good, next we shall assign the two columns to x and y axes.
 
 Now that we have our data loaded and assigned to variables, we can import matplotlib and create a plot.
 
