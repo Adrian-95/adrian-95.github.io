@@ -86,3 +86,10 @@ plt.savefig('C:/Users/Public/climateplot2.png', dpi=500)
 
 ![climateplot2][climateplot2]
 [climateplot2]: {static}/pages/images/climateplot2.png
+
+There are many other types of plots and customization options available with matplotlib. You can choose between line plots, scatter plots histograms, three-dimensional plots, streamplots, bar charts, pie charts and much more, depending on what best fits your data.
+
+## The power of Visualization ##
+
+![tempanomalies][tempanomalies]
+[tempanomalies]: {static}/pages/images/Temp-anomalies-2018.mp4
