@@ -53,7 +53,7 @@ At first glance, you may get a general idea of what this data is about. On the l
 
 Python provides great tools for data processing, plotting and visualization. For the example above we shall use `pandas` for reading and sorting the .xlsx file and `matplotlib` to create a 2D plot.
 
-The first step is to import the `pandas` module and read the file.
+The first step is to import the `pandas` module and read the file. Afterwards the Year column will be assigned to the x axis and the Value column will be assigned to the y axis.
 
 ```
 import pandas
@@ -62,11 +62,7 @@ print(df.columns)
 x = df['Year'].values
 y = df['Value'].values
 ```
-Notice that we are skipping the first 4 rows since the columns are on the 5th row. Let's print the columns from our table and see if the file loaded correctly
-
-So far so good, next we shall assign the two columns to x and y axes.
-
-Now that we have our data loaded and assigned to variables, we can import matplotlib and create a plot.
+Notice that we are skipping the first 4 rows since the columns are on the 5th row. Now that we have our data loaded and assigned to variables, we can import matplotlib and create a plot.
 
 ```
 import matplotlib.pyplot as plt
