@@ -76,8 +76,16 @@ plt.savefig('C:/Users/Public/climateplot.png', dpi=500)
 
 So now we have an x-y scatter plot of temperature anomalies versus time. This is obviously much better than analysing raw data and the overall warming trend can be seen clearly. Lets customize the plot by changing the figure size as well as making the data points smaller and red instead of blue.
 
+Finally, the code will look like this
+
 ```
-plt.figure(figsize=(16,5))
+import pandas
+import matplotlib.pyplot as plt
+df = pandas.read_excel('C:/Users/Public/data.xlsx', skiprows=4)
+print(df.columns)
+x = df['Year'].values
+y = df['Value'].values
+plt.figure(figsize=(10,5))
 plt.scatter(x, y, s=10, c ='r', marker='o')
 plt.xlabel('Year')
 plt.ylabel('Temperature Anomaly Value')
@@ -91,5 +99,4 @@ There are many other types of plots and customization options available with mat
 
 ## The power of Visualization ##
 
-![tempanomalies][tempanomalies]
-[tempanomalies]: {static}/pages/images/Temp-anomalies-2018.mp4
+https://www.youtube.com/watch?v=7RygVNrKMs0
