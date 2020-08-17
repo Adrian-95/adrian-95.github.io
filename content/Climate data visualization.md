@@ -99,4 +99,10 @@ There are many other types of plots and customization options available with mat
 
 ## The power of Visualization ##
 
-https://www.youtube.com/watch?v=7RygVNrKMs0
+The possibilities for Data Visualization with Python are almost endless. Although we only made some simples 2D plots earlier, the information conveyed is pretty solid. You can go much further than that though, as you are about to see in the following example. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7RygVNrKMs0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+This animation was made using Python and it displays a huge ammount of information in a very effective manner. The viewer sees the temperature anomalies for each country, in every year starting from 1880 all the way to 2017. As seen in the 2D plots, the temperature anomalies get more and more significant starting from 1960, and as you get in the 2000s almost every country has a big red circle, which signifies a positive temperature anomaly. 
+
+There is much more to be done with Python, but these examples can be a good inspiration for other big data projects.
