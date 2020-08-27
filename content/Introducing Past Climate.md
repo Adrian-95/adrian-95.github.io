@@ -33,7 +33,7 @@ You will find that Python has many other uses outside the realm of geoscience. Y
 
 ### Did you know? ###
 
-As a matter of fact, the website Past Climate is written in Python, powered by the latest [Pelican](https://github.com/getpelican/pelican) technology. It is only fitting, I think, considering the fact that we will be looking at python scripts quite often from now on. 
+As a matter of fact, the website Past Climate is powered by the latest [Pelican](https://github.com/getpelican/pelican) technology, which runs in Python. It is only fitting, I think, considering the fact that we will be looking at python scripts quite often from now on. 
 
 On a final note, I'd like to add that I'm no computer scientist and that I'm always looking to improve. I would like to hear from you if you have any ideas or suggestions related to my work.
 
