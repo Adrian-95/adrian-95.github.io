@@ -13,4 +13,4 @@ With that being said, I am not exactly a Computer Scientist , and English is not
 
 All inquires to be submitted at at adrianpopescu195@gmail.com
 
-[my_photo]: {static}/pages/images/image.png
+[my_photo]: {static}/pages/images/portland.jpg
