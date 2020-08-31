@@ -62,12 +62,12 @@ import pandas
 # Read the datafile with Pandas
 mkdata=pandas.read_excel('C:/Users/Public/mkdata.xlsx', skiprows=7)
 print (mkdata.columns)
-```
-Index(['time', 'eccentricity', 'obliquity', 'perihelion', 'insolation',
+
+>Index(['time', 'eccentricity', 'obliquity', 'perihelion', 'insolation',
        'global.insolation'],
       dtype='object')
 
-```
+
 # now to plot the orbital parameters
 # Eccentricity
 fig=plt.figure(1,(10,10)) 
@@ -91,4 +91,23 @@ plt.savefig('C:/Users/Public/mkplot1.png', dpi=500)
 ![mkplot1][mkplot1]
 [mkplot1]: {static}/pages/images/mkplot1.png
 
-This model clearly shows the different cyclicities of the orbital parameters.
+This model clearly shows the different cyclicities of the orbital parameters. The real question is how do these relate to the amount of insolation received by Earth. Let us make an additional plot for Insolation received at 65N summer solstice.
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+import pandas 
+mkdata=pandas.read_excel('C:/Users/Public/mkdata.xlsx', skiprows=7)
+# Insolation
+fig=plt.figure(1,(10,4)) 
+plt.plot(mkdata['time'],mkdata['insolation'],c ='y')
+plt.ylabel('Insolation')
+plt.xlabel('Age (ka)');
+plt.savefig('C:/Users/Public/mkplot2.png', dpi=500)
+```
+
+![mkplot2][mkplot2]
+[mkplot2]: {static}/pages/images/mkplot2.png
+
+There is definitely a correlation between these models, but how do they relate to ice ages? Can this data relay the exact timing and extent of past glaciations or is there more to the story? We shall explore the topic further and discuss the role of marine fossils in past climate models.
