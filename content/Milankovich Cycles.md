@@ -14,3 +14,81 @@ Milankovich defined three key parameters for orbital cycle calculations: eccentr
 
 ### Eccentricity
 
+Earth's orbit is not a perfect circle, but has a slightly eliptical shape due to the gravitational pull of nearby planets. Eccentricity is therefore the measure of variations of the orbital shape.
+
+![eccentricity][eccentricity]
+[eccentricity]: {static}/pages/images/eccentricity.jpg
+Source: Ruddiman, 2008
+
+Earth's distance from the Sun changes depending on its position on the eliptical orbit. Subsequently, this position affects the amount of solar radiation Earth receives, especially at perihelion (the position at which the Earth is closest to the Sun) and aphelion (the position at which the Earth is farthest away from the Sun).
+
+### Obliquity
+
+The Earth rotates around an invisible axis that passes through its poles. Obliquity measures the effect of increased tilt on poles. Earth's tilt also has a significant control on insolation, and therefore the coming and going of ice ages.
+
+Ice sheets usually develop when the axial tilt is small and summer insolation is low. The poles are therefore less directly towards the Sun.
+
+![obliquity1][obliquity1]
+[obliquity1]: {static}/pages/images/obliquity1.jpg
+Source: Ruddiman, 2008
+
+On the other hand, Ice sheets shrink when axial tilt is high and summer insolation is high. 
+
+![obliquity2][obliquity2]
+[obliquity2]: {static}/pages/images/obliquity2.jpg
+Source: Ruddiman, 2008
+
+### Axial precession
+
+In addition to spinning about its invisible axis, the Earth's spin axis also wobbles gradually in different directions through time, as a result of the gravitation pull of the Sun and Moon. This is known as Axial Precession.
+
+![precession][precession]
+[precession]: {static}/pages/images/precession.jpg
+Source: Ruddiman, 2008
+
+The Earth's eliptical orbit is also subject to precession, although it is slower than axial precession. Both motions alter the position of the solstices and equinoxes.
+
+## Milankovich Cycles moddeling in Python
+
+The variability of Earth's orbital parameters of eccentricity, obliquite and precession is quite predictable. Let's build a cyclicity model that displays the variability of milankovich cycles over the past 2 Million years.
+
+> Data obtained from J. Laskar et al (2004) A long term numerical solution for the insolation quantities of the Earth. Astronomy and Astrophysics 428, 261-285, DOI: 10.1051/0004-6361:20041335
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+import pandas 
+# Read the datafile with Pandas
+mkdata=pandas.read_excel('C:/Users/Public/mkdata.xlsx', skiprows=7)
+print (mkdata.columns)
+```
+Index(['time', 'eccentricity', 'obliquity', 'perihelion', 'insolation',
+       'global.insolation'],
+      dtype='object')
+
+```
+# now to plot the orbital parameters
+# Eccentricity
+fig=plt.figure(1,(10,10)) 
+fig.add_subplot(311) 
+plt.plot(mkdata['time'],mkdata['eccentricity'],c ='r')
+plt.ylabel('Eccentricity')
+
+# Obliquity
+fig.add_subplot(312)
+plt.plot(mkdata['time'],mkdata['obliquity'],c ='g')
+plt.ylabel('Obliquity')
+
+# Precession
+fig.add_subplot(313)
+plt.plot(mkdata['time'],mkdata['eccentricity'] * np.sin(mkdata['perihelion']),c ='b')
+plt.ylabel('Precession')
+plt.xlabel('Age (ka)'); #Unit: 1 ka = 1000 years
+plt.savefig('C:/Users/Public/mkplot1.png', dpi=500)
+```
+
+![mkplot1][mkplot1]
+[mkplot1]: {static}/pages/images/mkplot1.png
+
+This model clearly shows the different cyclicities of the orbital parameters.
