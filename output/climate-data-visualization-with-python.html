@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/borland.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+    <link href="/static/custom.css" rel="stylesheet">
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Past Climate Atom">
+
+
+    <link rel="shortcut icon" href="https://adrian-95.github.io/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="https://adrian-95.github.io/images/favicon.png" type="image/x-icon">
+
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333">
+
+<meta name="author" content="Adrian" />
+<meta name="description" content="In the age of Big Data, visualization is essential for making sense of millions of rows of unsorted raw data. More often than not, your data will come as a text file, or an excel file with rows and collumns. Here is an example of temperature anomaly data from an …" />
+<meta name="keywords" content="Data, Climate, Python">
+
+
+<meta property="og:site_name" content="Past Climate"/>
+<meta property="og:title" content="Climate data visualization with Python"/>
+<meta property="og:description" content="In the age of Big Data, visualization is essential for making sense of millions of rows of unsorted raw data. More often than not, your data will come as a text file, or an excel file with rows and collumns. Here is an example of temperature anomaly data from an …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/climate-data-visualization-with-python.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-15 00:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/adrian.html">
+<meta property="article:section" content="Data Visualization"/>
+<meta property="article:tag" content="Data"/>
+<meta property="article:tag" content="Climate"/>
+<meta property="article:tag" content="Python"/>
+<meta property="og:image" content="https://adrian-95.github.io/images/profile.png">
+
+  <title>Past Climate &ndash; Climate data visualization with Python</title>
+
+</head>
+<body class="light-theme">
+  <aside>
+    <div>
+      <a href="">
+        <img src="https://adrian-95.github.io/images/profile.png" alt="Adrian Popescu" title="Adrian Popescu">
+      </a>
+
+      <h1>
+        <a href="">Adrian Popescu</a>
+      </h1>
+
+<p> Geoscientist | Python Developer | Writer </p>
+
+      <nav>
+        <ul class="list">
+
+
+              <li>
+                <a target="_self"
+                   href="/pages/about.html">
+                  About
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="/pages/resources.html">
+                  Resources
+                </a>
+              </li>
+
+            <li>
+              <a target="_self" href="https://github.com/Adrian-95" >Projects</a>
+            </li>
+            <li>
+              <a target="_self" href="https://dinosaurpictures.org/ancient-earth?fbclid=IwAR3Bgt214CTVFTYiY8OfVBXHDakF-Oe_pYm53V48ssibVii5XnVVldwtBjE#90" >Ancient Earth</a>
+            </li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/adrian-popescu-59b502142/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-github" href="https://github.com/Adrian-95" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/past_climate" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">Home</a>
+
+      <a href="/index.html">Index</a>
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="/feeds/all.atom.xml">Atom</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="climate-data-visualization-with-python">Climate data visualization with Python</h1>
+    <p>
+      Posted on Sat 15 August 2020 in <a href="/category/data-visualization.html">Data Visualization</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>In the age of <strong>Big Data</strong>, visualization is essential for making sense of millions of rows of unsorted raw data. More often than not, your data will come as a text file, or an excel file with rows and collumns. Here is an example of temperature anomaly data from an .xlsx file:</p>
+<blockquote>
+<p>Global temperature anomaly data come from the Global Historical Climatology Network-Monthly (GHCN-M) data set and International Comprehensive Ocean-Atmosphere Data Set (ICOADS), which have data from 1880 to the present. These two datasets are blended into a single product to produce the combined global land and ocean temperature anomalies. The available timeseries of global-scale temperature anomalies are calculated with respect to the 20th century average, while the mapping tool displays global-scale temperature anomalies with respect to the 1981-2010 base period.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="err">Global Land and Ocean Temperature Anomalies  January-December</span>
+<span class="c">Units: Degrees Celsius  </span>
+<span class="err">Base Period: 1901-2000  </span>
+<span class="c">Missing: -999   </span>
+<span class="err">Year    Value</span>
+<span class="err">1880    -0.12</span>
+<span class="err">1881    -0.08</span>
+<span class="err">1882    -0.1</span>
+<span class="err">1883    -0.18</span>
+<span class="err">1884    -0.27</span>
+<span class="err">1885    -0.25</span>
+<span class="err">1886    -0.24</span>
+<span class="err">1887    -0.28</span>
+<span class="err">1888    -0.13</span>
+<span class="err">1889    -0.09</span>
+<span class="err">1890    -0.34</span>
+<span class="err">1891    -0.25</span>
+<span class="err">1892    -0.31</span>
+<span class="err">1893    -0.33</span>
+<span class="err">1894    -0.3</span>
+<span class="err">1895    -0.24</span>
+<span class="err">1896    -0.09</span>
+<span class="err">1897    -0.1</span>
+<span class="err">1898    -0.27</span>
+<span class="err">1899    -0.15</span>
+<span class="err">1900    -0.07</span>
+<span class="err">1901    -0.15</span>
+<span class="err">1902    -0.26</span>
+<span class="err">1903    -0.37</span>
+<span class="err">1904    -0.46</span>
+<span class="err">1905    -0.28</span>
+<span class="err">1906    -0.21</span>
+<span class="err">1907    -0.38</span>
+<span class="err">1908    -0.43</span>
+<span class="err">1909    -0.45</span>
+<span class="err">...</span>
+<span class="err">2020    1.14`</span>
+</pre></div>
+
+
+<p>At first glance, you may get a general idea of what this data is about. On the left column you clearly have years, and on the right you have what appears to be temperature anomalies. But this is not good enough if you wish to understand and interpret the data. </p>
+<p>Python provides great tools for data processing, plotting and visualization. For the example above we shall use <code>pandas</code> for reading and sorting the .xlsx file and <code>matplotlib</code> with <code>pyplot</code> to create a 2D plot.</p>
+<p>The first step is to import the <code>pandas</code> module and read the file. Afterwards the Year column will be assigned to the x axis and the Value column will be assigned to the y axis.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;C:/Users/Public/data.xlsx&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+
+
+<p>Notice that we are skipping the first 4 rows since the columns are on the 5th row. Now that we have our data loaded and assigned to variables, we can import matplotlib and create a plot with <code>pyplot</code>.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature Anomaly Value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;C:/Users/Public/climateplot.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="climateplot" src="/pages/images/climateplot.png"></p>
+<p>So now we have an x-y scatter plot of temperature anomalies versus time. This is obviously much better than analysing raw data and the overall warming trend can be seen clearly. Lets customize the plot by changing the figure size as well as making the data points smaller and red instead of blue.</p>
+<p>Finally, the code will look like this</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;C:/Users/Public/data.xlsx&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature Anomaly Value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;C:/Users/Public/climateplot2.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="climateplot2" src="/pages/images/climateplot2.png"></p>
+<p>There are many other types of plots and customization options available with matplotlib. You can choose between line plots, scatter plots histograms, three-dimensional plots, streamplots, bar charts, pie charts and much more, depending on what best fits your data.</p>
+<h2>The power of Visualization</h2>
+<p>The possibilities for Data Visualization with Python are almost endless. Although we only made some simples 2D plots earlier, the information conveyed is pretty solid. You can go much further than that though, as you are about to see in the following example. </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7RygVNrKMs0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>This animation was made with Python and it displays a huge ammount of information in a very effective manner. The viewer sees the temperature anomalies for each country, in every year starting from 1880 all the way to 2017. As seen in the 2D plots, the temperature anomalies get more and more significant starting from 1960, and as you get in the 2000s almost every country has a big red circle, which signifies a positive temperature anomaly. </p>
+<p>There is much more to be done with Python, but these examples can be a good inspiration for other big data projects.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/data.html">Data</a>
+      <a href="/tag/climate.html">Climate</a>
+      <a href="/tag/python.html">Python</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Past Climate ",
+  "url" : "",
+  "image": "https://adrian-95.github.io/images/profile.png",
+  "description": "Past Climate"
+}
+</script>
+
+
+</body>
+</html>
