@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Past Climate</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-08-31T00:00:00+02:00</updated><subtitle> Geoscientist | Python Developer | Writer </subtitle><entry><title>Global climate controls: Milankovich Cycles</title><link href="/global-climate-controls-milankovich-cycles.html" rel="alternate"></link><published>2020-08-31T00:00:00+02:00</published><updated>2020-08-31T00:00:00+02:00</updated><author><name>Adrian</name></author><id>tag:None,2020-08-31:/global-climate-controls-milankovich-cycles.html</id><summary type="html">&lt;p&gt;Earth's climate has been closely monitored for the past century with direct measurements and observation of climate components such as precipitation and temperature. Analyzing past climate records is a more difficult endeavor due to the lack of such direct data. In order to reconstruct past climate conditions, scientists must rely …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Earth's climate has been closely monitored for the past century with direct measurements and observation of climate components such as precipitation and temperature. Analyzing past climate records is a more difficult endeavor due to the lack of such direct data. In order to reconstruct past climate conditions, scientists must rely on various proxies that are sensitive to climatic and environmental changes. Such proxies may be oxygen and hydrogen isotopes preserved in ice cores or fossil remains from marine organisms such as belemnites or foraminifera, preserved in the geological record. &lt;/p&gt;
+&lt;h2&gt;Milankovitch Cycles&lt;/h2&gt;
+&lt;p&gt;In the 19th century, a geologist named Jean Louis Aggasiz made several observations based on glacial deposits which indicated the presence of a massive ice sheet which covered much of Europe. This raised many questions, such as what are the factors that control the coming and going of ice ages. In the 20th century however, a Serbian scientist named Milutin Milankovitz proposed and explanation for the climatic shifts that control the ice ages. He argued that the changes are likely due to variations in the Earth's orbit around the sun, which controls insolation, the amount of energy received from the sun. These cycles were thereafter called Milankovich cycles.&lt;/p&gt;
+&lt;p&gt;Milankovich defined three key parameters for orbital cycle calculations: eccentricity, obliquity and the precession of the spin axis.&lt;/p&gt;
+&lt;h3&gt;Eccentricity&lt;/h3&gt;
+&lt;p&gt;Earth's orbit is not a perfect circle, but has a slightly eliptical shape due to the gravitational pull of nearby planets. Eccentricity is therefore the measure of variations of the orbital shape.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="eccentricity" src="/pages/images/eccentricity.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Source: Ruddiman, 2008&lt;/p&gt;
+&lt;p&gt;Earth's distance from the Sun changes depending on its position on the eliptical orbit. Subsequently, this position affects the amount of solar radiation Earth receives, especially at perihelion (the position at which the Earth is closest to the Sun) and aphelion (the position at which the Earth is farthest away from the Sun).&lt;/p&gt;
+&lt;h3&gt;Obliquity&lt;/h3&gt;
+&lt;p&gt;The Earth rotates around an invisible axis that passes through its poles. Obliquity measures the effect of increased tilt on poles. Earth's tilt also has a significant control on insolation, and therefore the coming and going of ice ages.&lt;/p&gt;
+&lt;p&gt;Ice sheets usually develop when the axial tilt is small and summer insolation is low. The poles are therefore less directly towards the Sun.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="obliquity1" src="/pages/images/obliquity1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Source: Ruddiman, 2008&lt;/p&gt;
+&lt;p&gt;On the other hand, Ice sheets shrink when axial tilt is high and summer insolation is high. &lt;/p&gt;
+&lt;p&gt;&lt;img alt="obliquity2" src="/pages/images/obliquity2.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Source: Ruddiman, 2008&lt;/p&gt;
+&lt;h3&gt;Axial precession&lt;/h3&gt;
+&lt;p&gt;In addition to spinning about its invisible axis, the Earth's spin axis also wobbles gradually in different directions through time, as a result of the gravitation pull of the Sun and Moon. This is known as Axial Precession.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="precession" src="/pages/images/precession.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Source: Ruddiman, 2008&lt;/p&gt;
+&lt;p&gt;The Earth's eliptical orbit is also subject to precession, although it is slower than axial precession. Both motions alter the position of the solstices and equinoxes.&lt;/p&gt;
+&lt;h2&gt;Milankovich Cycles moddeling in Python&lt;/h2&gt;
+&lt;p&gt;The variability of Earth's orbital parameters of eccentricity, obliquite and precession is quite predictable. Let's build a cyclicity model that displays the variability of milankovich cycles over the past 2 Million years.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Data obtained from J. Laskar et al (2004) A long term numerical solution for the insolation quantities of the Earth. Astronomy and Astrophysics 428, 261-285, DOI: 10.1051/0004-6361:20041335&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; 
+&lt;span class="c1"&gt;# Read the datafile with Pandas&lt;/span&gt;
+&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pandas&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_excel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:/Users/Public/mkdata.xlsx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Index&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;eccentricity&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;obliquity&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;perihelion&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;insolation&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+       &lt;span class="s1"&gt;&amp;#39;global.insolation&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+      &lt;span class="kp"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;object&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="c1"&gt;# now to plot the orbital parameters&lt;/span&gt;
+&lt;span class="c1"&gt;# Eccentricity&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; 
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;311&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;eccentricity&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Eccentricity&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Obliquity&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;312&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;obliquity&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;g&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Obliquity&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Precession&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;313&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;eccentricity&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;perihelion&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Precession&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Age (ka)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;#Unit: 1 ka = 1000 years&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:/Users/Public/mkplot1.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="mkplot1" src="/pages/images/mkplot1.png"&gt;&lt;/p&gt;
+&lt;p&gt;This model clearly shows the different cyclicities of the orbital parameters. The real question is how do these relate to the amount of insolation received by Earth. Let us make an additional plot for Insolation received at 65N summer solstice.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; 
+&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pandas&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_excel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:/Users/Public/mkdata.xlsx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# Insolation&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; 
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;mkdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;insolation&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;y&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Insolation&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Age (ka)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:/Users/Public/mkplot2.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="mkplot2" src="/pages/images/mkplot2.png"&gt;&lt;/p&gt;
+&lt;p&gt;There is definitely a correlation between these models, but how do they relate to ice ages? Can this data relay the exact timing and extent of past glaciations or is there more to the story? We shall explore the topic further and discuss the role of marine fossils in past climate models.&lt;/p&gt;</content><category term="Climate"></category><category term="Climate"></category><category term="Geology"></category><category term="Python"></category></entry><entry><title>Climate data visualization with Python</title><link href="/climate-data-visualization-with-python.html" rel="alternate"></link><published>2020-08-15T00:00:00+02:00</published><updated>2020-08-15T00:00:00+02:00</updated><author><name>Adrian</name></author><id>tag:None,2020-08-15:/climate-data-visualization-with-python.html</id><summary type="html">&lt;p&gt;In the age of &lt;strong&gt;Big Data&lt;/strong&gt;, visualization is essential for making sense of millions of rows of unsorted raw data. More often than not, your data will come as a text file, or an excel file with rows and collumns. Here is an example of temperature anomaly data from an …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In the age of &lt;strong&gt;Big Data&lt;/strong&gt;, visualization is essential for making sense of millions of rows of unsorted raw data. More often than not, your data will come as a text file, or an excel file with rows and collumns. Here is an example of temperature anomaly data from an .xlsx file:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Global temperature anomaly data come from the Global Historical Climatology Network-Monthly (GHCN-M) data set and International Comprehensive Ocean-Atmosphere Data Set (ICOADS), which have data from 1880 to the present. These two datasets are blended into a single product to produce the combined global land and ocean temperature anomalies. The available timeseries of global-scale temperature anomalies are calculated with respect to the 20th century average, while the mapping tool displays global-scale temperature anomalies with respect to the 1981-2010 base period.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;Global Land and Ocean Temperature Anomalies  January-December&lt;/span&gt;
+&lt;span class="c"&gt;Units: Degrees Celsius  &lt;/span&gt;
+&lt;span class="err"&gt;Base Period: 1901-2000  &lt;/span&gt;
+&lt;span class="c"&gt;Missing: -999   &lt;/span&gt;
+&lt;span class="err"&gt;Year    Value&lt;/span&gt;
+&lt;span class="err"&gt;1880    -0.12&lt;/span&gt;
+&lt;span class="err"&gt;1881    -0.08&lt;/span&gt;
+&lt;span class="err"&gt;1882    -0.1&lt;/span&gt;
+&lt;span class="err"&gt;1883    -0.18&lt;/span&gt;
+&lt;span class="err"&gt;1884    -0.27&lt;/span&gt;
+&lt;span class="err"&gt;1885    -0.25&lt;/span&gt;
+&lt;span class="err"&gt;1886    -0.24&lt;/span&gt;
+&lt;span class="err"&gt;1887    -0.28&lt;/span&gt;
+&lt;span class="err"&gt;1888    -0.13&lt;/span&gt;
+&lt;span class="err"&gt;1889    -0.09&lt;/span&gt;
+&lt;span class="err"&gt;1890    -0.34&lt;/span&gt;
+&lt;span class="err"&gt;1891    -0.25&lt;/span&gt;
+&lt;span class="err"&gt;1892    -0.31&lt;/span&gt;
+&lt;span class="err"&gt;1893    -0.33&lt;/span&gt;
+&lt;span class="err"&gt;1894    -0.3&lt;/span&gt;
+&lt;span class="err"&gt;1895    -0.24&lt;/span&gt;
+&lt;span class="err"&gt;1896    -0.09&lt;/span&gt;
+&lt;span class="err"&gt;1897    -0.1&lt;/span&gt;
+&lt;span class="err"&gt;1898    -0.27&lt;/span&gt;
+&lt;span class="err"&gt;1899    -0.15&lt;/span&gt;
+&lt;span class="err"&gt;1900    -0.07&lt;/span&gt;
+&lt;span class="err"&gt;1901    -0.15&lt;/span&gt;
+&lt;span class="err"&gt;1902    -0.26&lt;/span&gt;
+&lt;span class="err"&gt;1903    -0.37&lt;/span&gt;
+&lt;span class="err"&gt;1904    -0.46&lt;/span&gt;
+&lt;span class="err"&gt;1905    -0.28&lt;/span&gt;
+&lt;span class="err"&gt;1906    -0.21&lt;/span&gt;
+&lt;span class="err"&gt;1907    -0.38&lt;/span&gt;
+&lt;span class="err"&gt;1908    -0.43&lt;/span&gt;
+&lt;span class="err"&gt;1909    -0.45&lt;/span&gt;
+&lt;span class="err"&gt;...&lt;/span&gt;
+&lt;span class="err"&gt;2020    1.14`&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;At first glance, you may get a general idea of what this data is about. On the left column you clearly have years, and on the right you have what appears to be temperature anomalies. But this is not good enough if you wish to understand and interpret the data. &lt;/p&gt;
+&lt;p&gt;Python provides great tools for data processing, plotting and visualization. For the example above we shall use &lt;code&gt;pandas&lt;/code&gt; for reading and sorting the .xlsx file and &lt;code&gt;matplotlib&lt;/code&gt; with &lt;code&gt;pyplot&lt;/code&gt; to create a 2D plot.&lt;/p&gt;
+&lt;p&gt;The first step is to import the &lt;code&gt;pandas&lt;/code&gt; module and read the file. Afterwards the Year column will be assigned to the x axis and the Value column will be assigned to the y axis.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pandas&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_excel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:/Users/Public/data.xlsx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Value&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Notice that we are skipping the first 4 rows since the columns are on the 5th row. Now that we have our data loaded and assigned to variables, we can import matplotlib and create a plot with &lt;code&gt;pyplot&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Temperature Anomaly Value&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:/Users/Public/climateplot.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="climateplot" src="/pages/images/climateplot.png"&gt;&lt;/p&gt;
+&lt;p&gt;So now we have an x-y scatter plot of temperature anomalies versus time. This is obviously much better than analysing raw data and the overall warming trend can be seen clearly. Lets customize the plot by changing the figure size as well as making the data points smaller and red instead of blue.&lt;/p&gt;
+&lt;p&gt;Finally, the code will look like this&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pandas&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_excel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:/Users/Public/data.xlsx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Value&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;marker&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;o&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Temperature Anomaly Value&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:/Users/Public/climateplot2.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dpi&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="climateplot2" src="/pages/images/climateplot2.png"&gt;&lt;/p&gt;
+&lt;p&gt;There are many other types of plots and customization options available with matplotlib. You can choose between line plots, scatter plots histograms, three-dimensional plots, streamplots, bar charts, pie charts and much more, depending on what best fits your data.&lt;/p&gt;
+&lt;h2&gt;The power of Visualization&lt;/h2&gt;
+&lt;p&gt;The possibilities for Data Visualization with Python are almost endless. Although we only made some simples 2D plots earlier, the information conveyed is pretty solid. You can go much further than that though, as you are about to see in the following example. &lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/7RygVNrKMs0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This animation was made with Python and it displays a huge ammount of information in a very effective manner. The viewer sees the temperature anomalies for each country, in every year starting from 1880 all the way to 2017. As seen in the 2D plots, the temperature anomalies get more and more significant starting from 1960, and as you get in the 2000s almost every country has a big red circle, which signifies a positive temperature anomaly. &lt;/p&gt;
+&lt;p&gt;There is much more to be done with Python, but these examples can be a good inspiration for other big data projects.&lt;/p&gt;</content><category term="Data Visualization"></category><category term="Data"></category><category term="Climate"></category><category term="Python"></category></entry><entry><title>Introducing Past Climate</title><link href="/introducing-past-climate.html" rel="alternate"></link><published>2020-08-06T00:00:00+02:00</published><updated>2020-08-06T00:00:00+02:00</updated><author><name>Adrian</name></author><id>tag:None,2020-08-06:/introducing-past-climate.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Past Climate&lt;/strong&gt; is a blog about various geoscience topics, python scripts and tutorials. Most topics will explore the proxies and processes that shaped the climate system of the Earth, but other geology-related topics will be adressed as well. Relevant news and articles may also be discussed. &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The beggining is the …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Past Climate&lt;/strong&gt; is a blog about various geoscience topics, python scripts and tutorials. Most topics will explore the proxies and processes that shaped the climate system of the Earth, but other geology-related topics will be adressed as well. Relevant news and articles may also be discussed. &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The beggining is the most important part of the work - Plato&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Why Past Climate?&lt;/h2&gt;
+&lt;p&gt;The main purpose of Past Climate is to create a platform where I am able to share my knowledge and the projects I have created over the years for the benefit of other geoscientists, or merely people interested in Earth Science matters. Past Climate, in particular, is a very hot topic nowadays due to the impending climate change the entire world is facing. Understanding the evolution of the climate system on Earth can help the scientific community better understand the problems we are facing today, and provide real solutions for the future.&lt;/p&gt;
+&lt;p&gt;It is certainly worth noting that Past Climate is a vast topic that involves a multitude of scientific disciplines. I can only approach this topic as a geoscientist, and I am always looking forward to hear opinions from other geoscientists as well people qualified in other domains. We can learn much from eachother!&lt;/p&gt;
+&lt;h2&gt;Coding opens golden opportunities for research&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Python" src="/pages/images/python-banner.png"&gt;&lt;/p&gt;
+&lt;p&gt;Coding skills are becoming more and more valuable as we unlock new technologies that make us more efficient in our work. &lt;/p&gt;
+&lt;p&gt;Python is an amazing tool for geoscientists. I have been studying Python for the past 2 years and the possibilities are staggering. The language itself is quite straightforward and easy to learn, but modules truly unlock the power of Python. Among the many things that make life easier, those of particular interest to geoscientist are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Plotting and Manipulating Data&lt;/em&gt;. In Python, this is done with the help of modules such as &lt;code&gt;Numpy&lt;/code&gt;, &lt;code&gt;Pandas&lt;/code&gt; and &lt;code&gt;Matplotlib&lt;/code&gt;. You can create your very own plots, diagrams, 2D and 3D arrays. The great advantage of doing this in Python is that your creation is fully customizable, since you are not held back by the limitations of some third party software. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Machine Learning&lt;/em&gt;. Python earned much of its fame by being the go-to language for Machine Learning. Modules such as &lt;code&gt;tensorflow&lt;/code&gt; and &lt;code&gt;scikit-learn&lt;/code&gt; provide the tools necessary for creating Python scripts able to sort trough massive ammounts of field data and identify patterns for further classification.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Geographical Information Systems&lt;/em&gt;. GIS is invaluable when working with spatial data. Python features many tools capable of reading, writing and manipulating this type of data, such as &lt;code&gt;geopandas&lt;/code&gt; and &lt;code&gt;pyproj&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You will find that Python has many other uses outside the realm of geoscience. You can write Python scripts to automate daily tasks and make your life easier, perhaps even become more efficient in your daily routine.&lt;/p&gt;
+&lt;h3&gt;Did you know?&lt;/h3&gt;
+&lt;p&gt;As a matter of fact, the website Past Climate is powered by the latest &lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt; technology, which runs in Python. It is only fitting, I think, considering the fact that we will be looking at python scripts quite often from now on. &lt;/p&gt;
+&lt;p&gt;On a final note, I'd like to add that I'm no computer scientist and that I'm always looking to improve. I would like to hear from you if you have any ideas or suggestions related to my work.&lt;/p&gt;</content><category term="Introduction"></category><category term="Introduction"></category><category term="Geology"></category><category term="Python"></category></entry></feed>

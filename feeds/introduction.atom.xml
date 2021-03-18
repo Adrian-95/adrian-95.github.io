@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Past Climate - Introduction</title><link href="/" rel="alternate"></link><link href="/feeds/introduction.atom.xml" rel="self"></link><id>/</id><updated>2020-08-06T00:00:00+02:00</updated><subtitle> Geoscientist | Python Developer | Writer </subtitle><entry><title>Introducing Past Climate</title><link href="/introducing-past-climate.html" rel="alternate"></link><published>2020-08-06T00:00:00+02:00</published><updated>2020-08-06T00:00:00+02:00</updated><author><name>Adrian</name></author><id>tag:None,2020-08-06:/introducing-past-climate.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Past Climate&lt;/strong&gt; is a blog about various geoscience topics, python scripts and tutorials. Most topics will explore the proxies and processes that shaped the climate system of the Earth, but other geology-related topics will be adressed as well. Relevant news and articles may also be discussed. &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The beggining is the …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Past Climate&lt;/strong&gt; is a blog about various geoscience topics, python scripts and tutorials. Most topics will explore the proxies and processes that shaped the climate system of the Earth, but other geology-related topics will be adressed as well. Relevant news and articles may also be discussed. &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The beggining is the most important part of the work - Plato&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Why Past Climate?&lt;/h2&gt;
+&lt;p&gt;The main purpose of Past Climate is to create a platform where I am able to share my knowledge and the projects I have created over the years for the benefit of other geoscientists, or merely people interested in Earth Science matters. Past Climate, in particular, is a very hot topic nowadays due to the impending climate change the entire world is facing. Understanding the evolution of the climate system on Earth can help the scientific community better understand the problems we are facing today, and provide real solutions for the future.&lt;/p&gt;
+&lt;p&gt;It is certainly worth noting that Past Climate is a vast topic that involves a multitude of scientific disciplines. I can only approach this topic as a geoscientist, and I am always looking forward to hear opinions from other geoscientists as well people qualified in other domains. We can learn much from eachother!&lt;/p&gt;
+&lt;h2&gt;Coding opens golden opportunities for research&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Python" src="/pages/images/python-banner.png"&gt;&lt;/p&gt;
+&lt;p&gt;Coding skills are becoming more and more valuable as we unlock new technologies that make us more efficient in our work. &lt;/p&gt;
+&lt;p&gt;Python is an amazing tool for geoscientists. I have been studying Python for the past 2 years and the possibilities are staggering. The language itself is quite straightforward and easy to learn, but modules truly unlock the power of Python. Among the many things that make life easier, those of particular interest to geoscientist are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Plotting and Manipulating Data&lt;/em&gt;. In Python, this is done with the help of modules such as &lt;code&gt;Numpy&lt;/code&gt;, &lt;code&gt;Pandas&lt;/code&gt; and &lt;code&gt;Matplotlib&lt;/code&gt;. You can create your very own plots, diagrams, 2D and 3D arrays. The great advantage of doing this in Python is that your creation is fully customizable, since you are not held back by the limitations of some third party software. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Machine Learning&lt;/em&gt;. Python earned much of its fame by being the go-to language for Machine Learning. Modules such as &lt;code&gt;tensorflow&lt;/code&gt; and &lt;code&gt;scikit-learn&lt;/code&gt; provide the tools necessary for creating Python scripts able to sort trough massive ammounts of field data and identify patterns for further classification.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Geographical Information Systems&lt;/em&gt;. GIS is invaluable when working with spatial data. Python features many tools capable of reading, writing and manipulating this type of data, such as &lt;code&gt;geopandas&lt;/code&gt; and &lt;code&gt;pyproj&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You will find that Python has many other uses outside the realm of geoscience. You can write Python scripts to automate daily tasks and make your life easier, perhaps even become more efficient in your daily routine.&lt;/p&gt;
+&lt;h3&gt;Did you know?&lt;/h3&gt;
+&lt;p&gt;As a matter of fact, the website Past Climate is powered by the latest &lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt; technology, which runs in Python. It is only fitting, I think, considering the fact that we will be looking at python scripts quite often from now on. &lt;/p&gt;
+&lt;p&gt;On a final note, I'd like to add that I'm no computer scientist and that I'm always looking to improve. I would like to hear from you if you have any ideas or suggestions related to my work.&lt;/p&gt;</content><category term="Introduction"></category><category term="Introduction"></category><category term="Geology"></category><category term="Python"></category></entry></feed>
