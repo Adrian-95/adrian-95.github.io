@@ -1,11 +1,11 @@
 title: Resources
 date: 2020-12-03
 
-**This page features a list of valuable resources for geoscientists. It will be updated ocassionaly.**
+## **This page features a list of valuable resources for geoscientists. It will be updated ocassionaly.**
 
-**awesome geoscience packages:** a comprehensive list featuring python packages for a variety of geological disciplines.
+**Awesome geoscience packages:** a comprehensive list featuring python packages for a variety of geological disciplines.
 
-*link:* https://github.com/softwareunderground/awesome-open-geoscience
+*Link:* https://github.com/softwareunderground/awesome-open-geoscience
 
 
 **ImageJ**: ImageJ is a public domain Java image processing program inspired by NIH Image for the Macintosh. It runs, either as an online applet or as a downloadable application, on any computer with a Java 1.4 or later virtual machine. Downloadable distributions are available for Windows, Mac OS, Mac OS X and Linux.
