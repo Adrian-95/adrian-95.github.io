@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/borland.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+    <link href="/static/custom.css" rel="stylesheet">
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Past Climate Atom">
+
+
+    <link rel="shortcut icon" href="https://adrian-95.github.io/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="https://adrian-95.github.io/images/favicon.png" type="image/x-icon">
+
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333">
+
+<meta name="author" content="Adrian" />
+<meta name="description" content="Understanding paleoclimatic conditions on Earth from millions of years ago remains a serious challenge, a problem that geoscientists have wrestled with for the past several decades. There are many past climate proxies which can help us understand the archaic climate of the Earth, such as isotopes from ice cores or …" />
+<meta name="keywords" content="Data, Climate, Geology">
+
+
+<meta property="og:site_name" content="Past Climate"/>
+<meta property="og:title" content="Extracting color data from sedimentary cores"/>
+<meta property="og:description" content="Understanding paleoclimatic conditions on Earth from millions of years ago remains a serious challenge, a problem that geoscientists have wrestled with for the past several decades. There are many past climate proxies which can help us understand the archaic climate of the Earth, such as isotopes from ice cores or …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/extracting-color-data-from-sedimentary-cores.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-03-22 00:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/adrian.html">
+<meta property="article:section" content="Data Analysis"/>
+<meta property="article:tag" content="Data"/>
+<meta property="article:tag" content="Climate"/>
+<meta property="article:tag" content="Geology"/>
+<meta property="og:image" content="https://adrian-95.github.io/images/profile.png">
+
+  <title>Past Climate &ndash; Extracting color data from sedimentary cores</title>
+
+</head>
+<body class="light-theme">
+  <aside>
+    <div>
+      <a href="">
+        <img src="https://adrian-95.github.io/images/profile.png" alt="Adrian Popescu" title="Adrian Popescu">
+      </a>
+
+      <h1>
+        <a href="">Adrian Popescu</a>
+      </h1>
+
+<p> Geoscientist | Python Developer | Writer </p>
+
+      <nav>
+        <ul class="list">
+
+
+              <li>
+                <a target="_self"
+                   href="/pages/about.html">
+                  About
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="/pages/resources.html">
+                  Resources
+                </a>
+              </li>
+
+            <li>
+              <a target="_self" href="https://github.com/Adrian-95" >Projects</a>
+            </li>
+            <li>
+              <a target="_self" href="https://dinosaurpictures.org/ancient-earth?fbclid=IwAR3Bgt214CTVFTYiY8OfVBXHDakF-Oe_pYm53V48ssibVii5XnVVldwtBjE#90" >Ancient Earth</a>
+            </li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/adrian-popescu-59b502142/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-github" href="https://github.com/Adrian-95" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/past_climate" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">Home</a>
+
+      <a href="/index.html">Index</a>
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="/feeds/all.atom.xml">Atom</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="extracting-color-data-from-sedimentary-cores">Extracting color data from sedimentary cores</h1>
+    <p>
+      Posted on Mon 22 March 2021 in <a href="/category/data-analysis.html">Data Analysis</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Understanding paleoclimatic conditions on Earth from millions of years ago remains a serious challenge, a problem that geoscientists have wrestled with for the past several decades. There are many past climate proxies which can help us understand the archaic climate of the Earth, such as isotopes from ice cores or fossils which relay the paleoenvironment and past temperatures based on the distribution of species. </p>
+<p>Sedimentary cores are among the few proxies which can be classified as <strong>hard data</strong>, thus extremely valuable to geoscientists. Alas, they are expensive to produce and therefore quite rare as well. There is a lot of information that a logging geologist can derive from core observations, mostly related to the properties of the rocks. But even moreso, an extensive core log can reveal certain patterns and cyclicities which may be correlated to environmental changes or climatic shifts in the past. Nonetheless, observing, let alone interpreting these events is no small task, but fortunately, modern software provides the ability to process and analyze quantitative data much more effectively. This article will convey one way to extract color data from high-resolution images of sedimentary cores.</p>
+<h3>Extracting Color Data - Creating a Picture Log ###</h3>
+<p>Assuming you want to cover the entirety of your studied succession, you will probably have a few dozen core boxes, possibly more. You will photograph the whole succession, but in order to properly sample the core you must put it back together in a chronological manner. The simplest way to do this is to cut the core material from your photos and reconstruct the core in an image editing software such as <strong>Adobe Illustrator</strong>. </p>
+<p>With basic image editing skills, this is an easy task, but you will want to keep 2 things in mind as you do this. First, you should make a scale and keep checking that the picture log matches the depth of your paper log as you add the cropped core pictures. Secondly, make sure the cropped core pictures have more or less the same dimensions and realistically depict your core succession. The scale will also help you in this sense, because the picture log will be a bit off in case some of your images are shrunken or enlarged. </p>
+<p>In the end, you want to have a continuos picture log of your studied succession, as if all your core was in a single, really long box. This will make sampling much easier, and since you have the scale too now you can easily keep track of your sampling rate. On a final note, try your best to keep image quality high as you process your core photos. </p>
+<h3>Extracting Color Data - Sampling ###</h3>
+<p>Naturally, the next step is to take color data samples from the core. This can be done in several ways, but since we are working with pictures of cores in this case we must do the sampling digitally. For this purpose, we shall use <strong>ImageJ</strong>. In this software, you can select an area in any given picture and calculate the average R, G and B values of the selected area. For a good resolution, it is a good idea to sample every 2.5 cm on average, although you may choose a different sampling rate depending on how much core material you have.</p>
+<p><img alt="colorsampling" src="/pages/images/colorsampling.jpg"></p>
+<p><em>Example of color data sampling in ImageJ</em></p>
+<h5>Step by step ImageJ sampling procedure:</h5>
+<ol>
+<li>Save your picture log as a jpeg and open it in ImageJ</li>
+<li>Go to Image &gt; Color and select "Make Composite". This will split the image in R, G and B color channels</li>
+<li>Zoom in on you picture log with the lens tool. Start at maximum depth.</li>
+<li>Select the rectangle or the oval tool to begin taking your first samples. Use the scale to make sure you more or less respect your chosen sampling rate.</li>
+<li>Once you select your first sampling area, press "CTRL-T" to save the sample. This will open a new window called ROI manager where you can see all your samples. I recommend you check the "Show All" and "Labes" boxes so that you can see all your samples on the core. Simply repeat the process for each new sample. 
+Tip: you can also move the rectangle/oval with your arrow keys.</li>
+<li>Once you have a decent number of samples or regions of interest (ROI), it is a good idea to save your progress. First, select them all with shift-click. </li>
+<li>Go to More &gt; Multi Measure. A new window will appear, make sure you measure all your samples and check the "One Row per Slice" box. </li>
+<li>A new window will open with as many columns as samples you submitted, and 3 lines for each column representing the average R, G and B values for each of your samples.</li>
+<li>Save the results in a .txt file and repeat the process from Step 4 until you sampled your entire succession.</li>
+</ol>
+<p><img alt="samplingresults" src="/pages/images/samplingresults.jpg"></p>
+<p><em>The results should look something like this. The rows show the R, G and B values for each measured sample.</em></p>
+<h3>File Processing</h3>
+<p>It is not ideal to have your color data in .txt files. The next step is to transpose the data and save it in excel. In order to do this, we shall use the <strong>PAST</strong> software</p>
+<p>To do this, simply open your .txt files one by one in the PAST software, go to Edit &gt; Rearrange and select the Transpose function. Your data matrix is now transposed with RGB in columns and samples in lines. Finally, save the file and reopen it in excel. It is a good idea to add the coresponding depth for each one of your samples, as you will need it for plotting the data later. Assuming you followed your chosen sampling rate, you can write an excel formula and quickly set the depth for your samples (but watch out for gaps!).</p>
+<p>You should now have between several hundreds to several thousands of RGB color data samples, depending on how much core material you have available. You are now very close to being ready to plot and interpret your color data. We shall cover the last steps of data processing and interpretation in the next article. </p>
+<p>You can find the download links for the freeware (ImageJ and PAST) on our <strong>resources</strong> page.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/data.html">Data</a>
+      <a href="/tag/climate.html">Climate</a>
+      <a href="/tag/geology.html">Geology</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Past Climate ",
+  "url" : "",
+  "image": "https://adrian-95.github.io/images/profile.png",
+  "description": "Past Climate"
+}
+</script>
+
+
+</body>
+</html>
