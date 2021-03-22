@@ -1,7 +1,7 @@
 title: Global climate controls: Milankovich Cycles
 date: 2020-08-31
 author: Adrian
-category: Climate
+category: Data Visualization
 tags: Climate, Geology, Python
 
 Earth's climate has been closely monitored for the past century with direct measurements and observation of climate components such as precipitation and temperature. Analyzing past climate records is a more difficult endeavor due to the lack of such direct data. In order to reconstruct past climate conditions, scientists must rely on various proxies that are sensitive to climatic and environmental changes. Such proxies may be oxygen and hydrogen isotopes preserved in ice cores or fossil remains from marine organisms such as belemnites or foraminifera, preserved in the geological record. 

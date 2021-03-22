@@ -11,6 +11,6 @@ Python has caught my attention since 2017 and I have been teaching myself new tr
 
 With that being said, I am not exactly a Computer Scientist, and English is not my mother language. If you notice any mistakes with my scripts and you wish to send me suggestions, know that they are most welcome.
 
-All inquires to be submitted at at adrianpopescu195@gmail.com
+All inquires to be submitted at adrianpopescu195@gmail.com
 
 [my_photo]: {static}/pages/images/portland.jpg
